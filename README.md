@@ -16,7 +16,9 @@ docker run -d --hostname rmq --name rabbit-server -p 8080:15672 -p 5672:5672 rab
 ```
 3. (The RabbitMQ image will be visible in Docker Desktop)
 4. (You can access the RabbitMQ instance at http://localhost:8080/#/ with credentials: guest/guest)*
-5. Run all 3 applications. (Setup app is already configured for all 3)
+5. Run all 3 applications. (Setup app is already configured for all 3)<br>
+   Although, you don't have to run them all at once. If the RabbitMQ service is running, the SenderApp can put messages on the queue, be stopped and a ReceiverApp started to pull messages from the queue.<br>
+   You can watch ready-unacked-total messages at ```http://localhost:8080/#/queues```.
 
 \* When you run the RabbitMQ Docker container with the rabbitmq:3-management image, it comes preconfigured with default credentials.
 
