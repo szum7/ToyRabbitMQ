@@ -4,6 +4,10 @@ using System.Text;
 
 namespace SenderApp
 {
+    /// <summary>
+    /// This could be an Azure Function App which gets the messages from the 
+    /// frontend websites and puts them on the Message Broker for processing.
+    /// </summary>
     class Program
     {
         static string GetMessage(int index)
