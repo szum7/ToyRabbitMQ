@@ -1,25 +1,24 @@
-# Development
------------
-
-open docker
-in cmd run:
-docker run -d --hostname rmq --name rabbit-server -p 8080:15672 -p 5672:5672 rabbitmq:3-management
-(you can see the image in docker desktop)
-(you can see the running RabbitMQ instance at localhost:8080)
-When you run the RabbitMQ Docker container with the rabbitmq:3-management image, it comes preconfigured with default credentials. 
-username: guest
-password: guest
-
-
-
-# Source
-------
-
-IAmTimCorey - Intro To RabbitMQ
-https://www.youtube.com/watch?v=bfVddTJNiAw
-=======
 # ToyRabbitMQ
 Experiment with RabbitMQ.
+
+## Info
+```
+docker run -d --hostname rmq --name rabbit-server -p 8080:15672 -p 5672:5672 rabbitmq:3-management
+```
+- ```5672``` the port for sending queue messages to the server (internally it's ```5672``` and this command maps it externally to the same)<br>
+- ```15672``` the webserver is normally on this port but now mapped to ```8080```
+
+## To Run
+1. Open Docker
+2. Setup a RabbitMQ server with Docker, run in CMD:
+```
+docker run -d --hostname rmq --name rabbit-server -p 8080:15672 -p 5672:5672 rabbitmq:3-management
+```
+3. (The RabbitMQ image will be visible in Docker Desktop)
+4. (You can access the RabbitMQ instance at http://localhost:8080/#/ with credentials: guest/guest)*
+5. Run all 3 applications. (Setup app is already configured for all 3)
+
+\* When you run the RabbitMQ Docker container with the rabbitmq:3-management image, it comes preconfigured with default credentials.
 
 ## Dev history
 1. Setup a RabbitMQ server with Docker
@@ -32,5 +31,5 @@ docker run -d --hostname rmq --name rabbit-server -p 8080:15672 -p 5672:5672 rab
 5. Add RabbitMQ.Client nuget package to all applications
 6. Add code and run all 3 applications (with the RabbitMQ Docker container running.) 
 
-### Sources
+## Sources
 - [IAmTimCorey / Intro To RabbitMQ](https://youtu.be/bfVddTJNiAw)
