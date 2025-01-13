@@ -34,7 +34,7 @@ namespace ReceiverApp2
                 var body = args.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
 
-                Console.WriteLine($"Message received: {message}");
+                Console.WriteLine($"Message received: {message}"); 
 
                 channel.BasicAck(args.DeliveryTag, false);
 

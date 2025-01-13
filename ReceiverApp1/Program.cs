@@ -31,11 +31,15 @@ namespace ReceiverApp1
             var consumer = new EventingBasicConsumer(channel);
             consumer.Received += (sender, args) =>
             {
+                // By grabbing the message, the message will be gone if we acknowledge it at the end.
                 var body = args.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
 
+                // This is where we do something with the message.
+                // Send it to the database, or call some method, do some work on it, etc.
                 Console.WriteLine($"Message received: {message}");
 
+                // We can set it to not acknowledge it if we have for example an error/exception/etc
                 channel.BasicAck(args.DeliveryTag, false);
 
                 // Delay
